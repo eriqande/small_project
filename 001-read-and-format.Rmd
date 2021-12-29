@@ -1,0 +1,69 @@
+---
+title: "Read and Format Data"
+output: html_notebook
+---
+
+This is just a small example of how a reproducible project might look.
+Each notebook does very little (less than in a typical analysis).
+
+This is the first notebook to evaluate.  (number 001).  Outputs from this
+notebook will be used later, so we create a directory, `outputs/001` to
+write outputs to.
+```{r}
+dir.create("outputs/001", showWarnings = FALSE, recursive = TRUE)
+```
+
+Eric has stored the standard "iris" data from R into a CSV file
+in the `data` directory in this project.  We will read it in.
+```{r}
+library(tidyverse)
+
+dat <- read_csv("data/iris.csv")
+```
+
+Now, we will make the column names more to our liking and change
+the order to be more pleasing, and also give a unique ID to
+each plant.
+```{r}
+dat_final <- dat %>%
+  rename(
+    species = Species,
+    sepal_length = Sepal.Length,
+    sepal_width = Sepal.Width,
+    petal_length = Petal.Length,
+    petal_width = Petal.Width
+  ) %>%
+  relocate(species, .before = sepal_length) %>%
+  mutate(
+    indiv = sprintf("plant%03d", 1:n()), 
+    .before = species
+  )
+```
+
+These changes are somewhat gratuitous.  Usually you would have much
+more data cleaning/formatting to do.  This is just for an example.
+
+With that done, we will write the object out as as RDS file for
+use in later scripts or notebooks.
+
+```{r}
+write_rds(dat_final, "outputs/001/dat_final.rds")
+```
+
+## SessionInfo
+
+At the end, you should write out the SessionInfo, which tells you
+about the version of R that was used as well as information about
+which packages were employed.
+
+R comes with a command called `sessionInfo()`, which is standard,
+but if you install the 'sessioninfo' package you can get output that
+is more easily read.  The following code uses the `sessioninfo` package
+if it is installed, and the standard `sessionInfo()` otherwise.
+```{r}
+if("sessioninfo" %in% rownames(installed.packages())) {
+  sessioninfo::session_info()
+} else {
+  sessionInfo()
+}
+```

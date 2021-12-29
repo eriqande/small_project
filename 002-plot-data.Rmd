@@ -1,0 +1,76 @@
+---
+title: "Plot The Iris Data"
+output: html_notebook
+---
+
+This second notebook uses the output from `001-read-and-format.Rmd`.
+
+Sometimes, when you have a long analysis project, it is helpful to
+break it into several different files.  
+
+(Obviously this is short enough that it would be fine to do it all
+in one file.  But that is not always the case---especially if you have
+multiple people working on different aspects of the analysis.)
+
+We will be writing out some plots, so make sure to create
+a directory for them to go in:
+```{r}
+dir.create("outputs/002", showWarnings = FALSE, recursive = TRUE)
+```
+
+Read the formatted data output in 001 in here:
+```{r}
+library(tidyverse)  # always load libraries needed in the current script/notebook,
+                    # even if they might already have been loaded in a previous
+                    # notebook.  (i.e. in `001-read-and-format.Rmd`).
+
+iris_data <- read_rds("outputs/001/dat_final.rds")
+```
+
+
+Now, I want to plot each length and width measurement against every other
+length and width measurement
+and colour the points by species.  This can be done pretty easily
+by faceting with ggplot. But to do so, we need things in a different format, like
+this:
+```{r}
+iris_x <- pivot_longer(
+  iris_data,
+  cols = c(-indiv, -species),
+  names_to = "measurement_x",
+  values_to = "x"
+)
+iris_y <- pivot_longer(
+  iris_data,
+  cols = c(-indiv, -species),
+  names_to = "measurement_y",
+  values_to = "y"
+)
+
+iris_pairwise <- iris_x %>%
+  left_join(iris_y, by = c("indiv", "species"))
+
+```
+
+
+Now, make the plot.
+```{r}
+g <- ggplot(iris_pairwise, aes(x = x, y = y, fill = species)) +
+  geom_point(shape = 21, stroke = 0.2) +
+  facet_grid(measurement_y ~ measurement_x)
+
+g
+```
+
+That is a nice picture.
+
+Now, if we wanted to write that figure out as a PDF file to be in high
+resolution, etc., we would write that out to the `outputs/002` directory.
+```{r}
+ggsave(
+  g,
+  filename = "outputs/002/faceted-plot.pdf",
+  width = 10,
+  height = 8
+)
+```
