@@ -229,9 +229,25 @@ pre code {
 <p>Read the formatted data output in 001 in here:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpICAjIGFsd2F5cyBsb2FkIGxpYnJhcmllcyBuZWVkZWQgaW4gdGhlIGN1cnJlbnQgc2NyaXB0L25vdGVib29rLFxuICAgICAgICAgICAgICAgICAgICAjIGV2ZW4gaWYgdGhleSBtaWdodCBhbHJlYWR5IGhhdmUgYmVlbiBsb2FkZWQgaW4gYSBwcmV2aW91c1xuICAgICAgICAgICAgICAgICAgICAjIG5vdGVib29rLiAgKGkuZS4gaW4gYDAwMS1yZWFkLWFuZC1mb3JtYXQuUm1kYCkuXG5cbmlyaXNfZGF0YSA8LSByZWFkX3JkcyhcIm91dHB1dHMvMDAxL2RhdF9maW5hbC5yZHNcIilcbmBgYCJ9 -->
-<pre class="r"><code>library(tidyverse)  # always load libraries needed in the current script/notebook,
-                    # even if they might already have been loaded in a previous
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpICAjIGFsd2F5cyBsb2FkIGxpYnJhcmllcyBuZWVkZWQgaW4gdGhlIGN1cnJlbnQgc2NyaXB0L25vdGVib29rLFxuYGBgIn0= -->
+<pre class="r"><code>library(tidyverse)  # always load libraries needed in the current script/notebook,</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4xIOKUgOKUgFxu4pyTIGdncGxvdDIgMy4zLjUgICAgIOKckyBwdXJyciAgIDAuMy40XG7inJMgdGliYmxlICAzLjEuNiAgICAg4pyTIGRwbHlyICAgMS4wLjdcbuKckyB0aWR5ciAgIDEuMS40ICAgICDinJMgc3RyaW5nciAxLjQuMFxu4pyTIHJlYWRyICAgMi4wLjEgICAgIOKckyBmb3JjYXRzIDAuNS4xXG7ilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG54IGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbnggZHBseXI6OmxhZygpICAgIG1hc2tzIHN0YXRzOjpsYWcoKVxuIn0= -->
+<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+── Attaching packages ───────────────────────────────────────────── tidyverse 1.3.1 ──
+✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+✓ tibble  3.1.6     ✓ dplyr   1.0.7
+✓ tidyr   1.1.4     ✓ stringr 1.4.0
+✓ readr   2.0.1     ✓ forcats 0.5.1
+── Conflicts ──────────────────────────────────────────────── tidyverse_conflicts() ──
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICAgICAgICAgICAgICAgICAgICAjIGV2ZW4gaWYgdGhleSBtaWdodCBhbHJlYWR5IGhhdmUgYmVlbiBsb2FkZWQgaW4gYSBwcmV2aW91c1xuICAgICAgICAgICAgICAgICAgICAjIG5vdGVib29rLiAgKGkuZS4gaW4gYDAwMS1yZWFkLWFuZC1mb3JtYXQuUm1kYCkuXG5cbmlyaXNfZGF0YSA8LSByZWFkX3JkcyhcIm91dHB1dHMvMDAxL2RhdF9maW5hbC5yZHNcIilcbmBgYCJ9 -->
+<pre class="r"><code>                    # even if they might already have been loaded in a previous
                     # notebook.  (i.e. in `001-read-and-format.Rmd`).
 
 iris_data &lt;- read_rds(&quot;outputs/001/dat_final.rds&quot;)</code></pre>
@@ -289,8 +305,102 @@ g</code></pre>
 )</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="session-info" class="section level2">
+<h2>Session Info</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaWYoXCJzZXNzaW9uaW5mb1wiICVpbiUgcm93bmFtZXMoaW5zdGFsbGVkLnBhY2thZ2VzKCkpKSB7XG4gIHNlc3Npb25pbmZvOjpzZXNzaW9uX2luZm8oKVxufSBlbHNlIHtcbiAgc2Vzc2lvbkluZm8oKVxufVxuYGBgIn0= -->
+<pre class="r"><code>if(&quot;sessioninfo&quot; %in% rownames(installed.packages())) {
+  sessioninfo::session_info()
+} else {
+  sessionInfo()
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6OSwibmNvbCI6Miwic3VtbWFyeSI6eyJEZXNjcmlwdGlvbiI6WyJkZiBbOSDDlyAyXSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUE4VlN6MCtETUJRdURKeGcvQkgxNklIalRLUlNYSEFlVGFZM05kbGNzdHRTb1dLVmxZV1d6Zm5IVHd0cnpVYmkyVVBUNzMzdjEvZGVPK2lQcjl5eEN3Qm9BY3N3UU11V0VOaWo1M3UvQjRCbFNzTUFGbkNxKzFNR25VaFFrVWZ5T01yUm5wT0MwNXdwMDh5NVFqdDh5UVdaYXI2a0N1MW1tS1VsVG9rdUVPZFpob1UyN1Znc1o5b3d4WmRDVmxLRmJMYytHM2lxdWRlRkNDS3ZFd1loOG9PZWo0SnpGWE02eGZIVDBIdkkzL0djZUNpQXFBc2o1VHYrN0VXVHFIdmhKYmhZVUlhdVlhQTFEWWFpVEdpdW0zZnVIblhCUGNJbW95RmM3K2hQNnVCMlNnb2E0OHMrWVZLall0MWFId3I5OEtheFhwdmhLZUZxUGxPcjRFUUl5bElkTThkWlNScUpUcEV2NEdieS83ekw5akJ4aHJuV28wbFhCbUw0V2tpcDBsbzFVdHI1VEVpeE1zbXNQcG5kU0RhS0JuRllzbXJveEkvZlN2YmhSMVdEMnIwKysrcDJOckM1Ym1sK3ExSzIzZ2RoS1dXL1kyYjRoV1Q2RmVWeTY5M0NXVUdaMEpOSWxrT1JDNnpqWExrcXpkU3pnZFVQall4VnExc0RBQUE9In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["setting"],"name":[1],"type":["chr"],"align":["left"]},{"label":["value"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"version","2":"R version 4.1.1 (2021-08-10)","_rn_":"version"},{"1":"os","2":"macOS Mojave 10.14.6","_rn_":"os"},{"1":"system","2":"x86_64, darwin17.0","_rn_":"system"},{"1":"ui","2":"RStudio","_rn_":"ui"},{"1":"language","2":"(EN)","_rn_":"language"},{"1":"collate","2":"en_US.UTF-8","_rn_":"collate"},{"1":"ctype","2":"en_US.UTF-8","_rn_":"ctype"},{"1":"tz","2":"America/Denver","_rn_":"tz"},{"1":"date","2":"2021-12-29","_rn_":"date"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[9]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-output-begin eyJkYXRhIjoi4pSAIFNlc3Npb24gaW5mbyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcblxu4pSAIFBhY2thZ2VzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgFxuIHBhY2thZ2UgICAgICogdmVyc2lvbiBkYXRlICAgICAgIGxpYiBzb3VyY2UgICAgICAgIFxuIGFzc2VydHRoYXQgICAgMC4yLjEgICAyMDE5LTAzLTIxIFsxXSBDUkFOIChSIDQuMS4wKVxuIGJhY2twb3J0cyAgICAgMS4yLjEgICAyMDIwLTEyLTA5IFsxXSBDUkFOIChSIDQuMS4wKVxuIGJyb29tICAgICAgICAgMC43LjkgICAyMDIxLTA3LTI3IFsxXSBDUkFOIChSIDQuMS4wKVxuIGJzbGliICAgICAgICAgMC4zLjAgICAyMDIxLTA5LTAyIFsxXSBDUkFOIChSIDQuMS4wKVxuIGNlbGxyYW5nZXIgICAgMS4xLjAgICAyMDE2LTA3LTI3IFsxXSBDUkFOIChSIDQuMS4wKVxuIGNsaSAgICAgICAgICAgMy4wLjEgICAyMDIxLTA3LTE3IFsxXSBDUkFOIChSIDQuMS4wKVxuIGNvbG9yc3BhY2UgICAgMi4wLTIgICAyMDIxLTA2LTI0IFsxXSBDUkFOIChSIDQuMS4wKVxuIGNyYXlvbiAgICAgICAgMS40LjEgICAyMDIxLTAyLTA4IFsxXSBDUkFOIChSIDQuMS4wKVxuIERCSSAgICAgICAgICAgMS4xLjEgICAyMDIxLTAxLTE1IFsxXSBDUkFOIChSIDQuMS4wKVxuIGRicGx5ciAgICAgICAgMi4xLjEgICAyMDIxLTA0LTA2IFsxXSBDUkFOIChSIDQuMS4wKVxuIGRpZ2VzdCAgICAgICAgMC42LjI3ICAyMDIwLTEwLTI0IFsxXSBDUkFOIChSIDQuMS4wKVxuIGRwbHlyICAgICAgICogMS4wLjcgICAyMDIxLTA2LTE4IFsxXSBDUkFOIChSIDQuMS4wKVxuIGVsbGlwc2lzICAgICAgMC4zLjIgICAyMDIxLTA0LTI5IFsxXSBDUkFOIChSIDQuMS4wKVxuIGV2YWx1YXRlICAgICAgMC4xNCAgICAyMDE5LTA1LTI4IFsxXSBDUkFOIChSIDQuMS4wKVxuIGZhbnNpICAgICAgICAgMC41LjAgICAyMDIxLTA1LTI1IFsxXSBDUkFOIChSIDQuMS4wKVxuIGZhcnZlciAgICAgICAgMi4xLjAgICAyMDIxLTAyLTI4IFsxXSBDUkFOIChSIDQuMS4wKVxuIGZhc3RtYXAgICAgICAgMS4xLjAgICAyMDIxLTAxLTI1IFsxXSBDUkFOIChSIDQuMS4wKVxuIGZvcmNhdHMgICAgICogMC41LjEgICAyMDIxLTAxLTI3IFsxXSBDUkFOIChSIDQuMS4wKVxuIGZzICAgICAgICAgICAgMS41LjAgICAyMDIwLTA3LTMxIFsxXSBDUkFOIChSIDQuMS4wKVxuIGdlbmVyaWNzICAgICAgMC4xLjAgICAyMDIwLTEwLTMxIFsxXSBDUkFOIChSIDQuMS4wKVxuIGdncGxvdDIgICAgICogMy4zLjUgICAyMDIxLTA2LTI1IFsxXSBDUkFOIChSIDQuMS4wKVxuIGdsdWUgICAgICAgICAgMS40LjIgICAyMDIwLTA4LTI3IFsxXSBDUkFOIChSIDQuMS4wKVxuIGd0YWJsZSAgICAgICAgMC4zLjAgICAyMDE5LTAzLTI1IFsxXSBDUkFOIChSIDQuMS4wKVxuIGhhdmVuICAgICAgICAgMi40LjMgICAyMDIxLTA4LTA0IFsxXSBDUkFOIChSIDQuMS4wKVxuIGhtcyAgICAgICAgICAgMS4xLjAgICAyMDIxLTA1LTE3IFsxXSBDUkFOIChSIDQuMS4wKVxuIGh0bWx0b29scyAgICAgMC41LjIgICAyMDIxLTA4LTI1IFsxXSBDUkFOIChSIDQuMS4wKVxuIGh0dHIgICAgICAgICAgMS40LjIgICAyMDIwLTA3LTIwIFsxXSBDUkFOIChSIDQuMS4wKVxuIGpxdWVyeWxpYiAgICAgMC4xLjQgICAyMDIxLTA0LTI2IFsxXSBDUkFOIChSIDQuMS4wKVxuIGpzb25saXRlICAgICAgMS43LjIgICAyMDIwLTEyLTA5IFsxXSBDUkFOIChSIDQuMS4wKVxuIGtuaXRyICAgICAgICAgMS4zNCAgICAyMDIxLTA5LTA5IFsxXSBDUkFOIChSIDQuMS4wKVxuIGxhYmVsaW5nICAgICAgMC40LjIgICAyMDIwLTEwLTIwIFsxXSBDUkFOIChSIDQuMS4wKVxuIGxpZmVjeWNsZSAgICAgMS4wLjAgICAyMDIxLTAyLTE1IFsxXSBDUkFOIChSIDQuMS4wKVxuIGx1YnJpZGF0ZSAgICAgMS43LjEwICAyMDIxLTAyLTI2IFsxXSBDUkFOIChSIDQuMS4wKVxuIG1hZ3JpdHRyICAgICAgMi4wLjEgICAyMDIwLTExLTE3IFsxXSBDUkFOIChSIDQuMS4wKVxuIG1vZGVsciAgICAgICAgMC4xLjggICAyMDIwLTA1LTE5IFsxXSBDUkFOIChSIDQuMS4wKVxuIG11bnNlbGwgICAgICAgMC41LjAgICAyMDE4LTA2LTEyIFsxXSBDUkFOIChSIDQuMS4wKVxuIHBpbGxhciAgICAgICAgMS42LjIgICAyMDIxLTA3LTI5IFsxXSBDUkFOIChSIDQuMS4wKVxuIHBrZ2NvbmZpZyAgICAgMi4wLjMgICAyMDE5LTA5LTIyIFsxXSBDUkFOIChSIDQuMS4wKVxuIHB1cnJyICAgICAgICogMC4zLjQgICAyMDIwLTA0LTE3IFsxXSBDUkFOIChSIDQuMS4wKVxuIFI2ICAgICAgICAgICAgMi41LjEgICAyMDIxLTA4LTE5IFsxXSBDUkFOIChSIDQuMS4wKVxuIFJjcHAgICAgICAgICAgMS4wLjcgICAyMDIxLTA3LTA3IFsxXSBDUkFOIChSIDQuMS4wKVxuIHJlYWRyICAgICAgICogMi4wLjEgICAyMDIxLTA4LTEwIFsxXSBDUkFOIChSIDQuMS4wKVxuIHJlYWR4bCAgICAgICAgMS4zLjEgICAyMDE5LTAzLTEzIFsxXSBDUkFOIChSIDQuMS4wKVxuIHJlcHJleCAgICAgICAgMi4wLjEgICAyMDIxLTA4LTA1IFsxXSBDUkFOIChSIDQuMS4wKVxuIHJsYW5nICAgICAgICAgMC40LjExICAyMDIxLTA0LTMwIFsxXSBDUkFOIChSIDQuMS4wKVxuIHJtYXJrZG93biAgICAgMi4xMCAgICAyMDIxLTA4LTA2IFsxXSBDUkFOIChSIDQuMS4wKVxuIHJzdHVkaW9hcGkgICAgMC4xMyAgICAyMDIwLTExLTEyIFsxXSBDUkFOIChSIDQuMS4wKVxuIHJ2ZXN0ICAgICAgICAgMS4wLjEgICAyMDIxLTA3LTI2IFsxXSBDUkFOIChSIDQuMS4wKVxuIHNhc3MgICAgICAgICAgMC40LjAgICAyMDIxLTA1LTEyIFsxXSBDUkFOIChSIDQuMS4wKVxuIHNjYWxlcyAgICAgICAgMS4xLjEgICAyMDIwLTA1LTExIFsxXSBDUkFOIChSIDQuMS4wKVxuIHNlc3Npb25pbmZvICAgMS4xLjEgICAyMDE4LTExLTA1IFsxXSBDUkFOIChSIDQuMS4wKVxuIHN0cmluZ2kgICAgICAgMS43LjQgICAyMDIxLTA4LTI1IFsxXSBDUkFOIChSIDQuMS4wKVxuIHN0cmluZ3IgICAgICogMS40LjAgICAyMDE5LTAyLTEwIFsxXSBDUkFOIChSIDQuMS4wKVxuIHRpYmJsZSAgICAgICogMy4xLjYgICAyMDIxLTExLTA3IFsxXSBDUkFOIChSIDQuMS4wKVxuIHRpZHlyICAgICAgICogMS4xLjQgICAyMDIxLTA5LTI3IFsxXSBDUkFOIChSIDQuMS4wKVxuIHRpZHlzZWxlY3QgICAgMS4xLjEgICAyMDIxLTA0LTMwIFsxXSBDUkFOIChSIDQuMS4wKVxuIHRpZHl2ZXJzZSAgICogMS4zLjEgICAyMDIxLTA0LTE1IFsxXSBDUkFOIChSIDQuMS4wKVxuIHR6ZGIgICAgICAgICAgMC4xLjIgICAyMDIxLTA3LTIwIFsxXSBDUkFOIChSIDQuMS4wKVxuIHV0ZjggICAgICAgICAgMS4yLjIgICAyMDIxLTA3LTI0IFsxXSBDUkFOIChSIDQuMS4wKVxuIHZjdHJzICAgICAgICAgMC4zLjggICAyMDIxLTA0LTI5IFsxXSBDUkFOIChSIDQuMS4wKVxuIHdpdGhyICAgICAgICAgMi40LjIgICAyMDIxLTA0LTE4IFsxXSBDUkFOIChSIDQuMS4wKVxuIHhmdW4gICAgICAgICAgMC4yNSAgICAyMDIxLTA4LTA2IFsxXSBDUkFOIChSIDQuMS4wKVxuIHhtbDIgICAgICAgICAgMS4zLjIgICAyMDIwLTA0LTIzIFsxXSBDUkFOIChSIDQuMS4wKVxuIHlhbWwgICAgICAgICAgMi4yLjEgICAyMDIwLTAyLTAxIFsxXSBDUkFOIChSIDQuMS4wKVxuXG5bMV0gL1VzZXJzL2VyaXEvTGlicmFyeS9SLzQuMS9saWJyYXJ5XG5bMl0gL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy80LjEvUmVzb3VyY2VzL2xpYnJhcnlcbiJ9 -->
+<pre><code>─ Session info ─────────────────────────────────────────────────────────────────────
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUGxvdCBUaGUgSXJpcyBEYXRhIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpUaGlzIHNlY29uZCBub3RlYm9vayB1c2VzIHRoZSBvdXRwdXQgZnJvbSBgMDAxLXJlYWQtYW5kLWZvcm1hdC5SbWRgLgoKU29tZXRpbWVzLCB3aGVuIHlvdSBoYXZlIGEgbG9uZyBhbmFseXNpcyBwcm9qZWN0LCBpdCBpcyBoZWxwZnVsIHRvCmJyZWFrIGl0IGludG8gc2V2ZXJhbCBkaWZmZXJlbnQgZmlsZXMuICAKCihPYnZpb3VzbHkgdGhpcyBpcyBzaG9ydCBlbm91Z2ggdGhhdCBpdCB3b3VsZCBiZSBmaW5lIHRvIGRvIGl0IGFsbAppbiBvbmUgZmlsZS4gIEJ1dCB0aGF0IGlzIG5vdCBhbHdheXMgdGhlIGNhc2UtLS1lc3BlY2lhbGx5IGlmIHlvdSBoYXZlCm11bHRpcGxlIHBlb3BsZSB3b3JraW5nIG9uIGRpZmZlcmVudCBhc3BlY3RzIG9mIHRoZSBhbmFseXNpcy4pCgpXZSB3aWxsIGJlIHdyaXRpbmcgb3V0IHNvbWUgcGxvdHMsIHNvIG1ha2Ugc3VyZSB0byBjcmVhdGUKYSBkaXJlY3RvcnkgZm9yIHRoZW0gdG8gZ28gaW46CmBgYHtyfQpkaXIuY3JlYXRlKCJvdXRwdXRzLzAwMiIsIHNob3dXYXJuaW5ncyA9IEZBTFNFLCByZWN1cnNpdmUgPSBUUlVFKQpgYGAKClJlYWQgdGhlIGZvcm1hdHRlZCBkYXRhIG91dHB1dCBpbiAwMDEgaW4gaGVyZToKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKSAgIyBhbHdheXMgbG9hZCBsaWJyYXJpZXMgbmVlZGVkIGluIHRoZSBjdXJyZW50IHNjcmlwdC9ub3RlYm9vaywKICAgICAgICAgICAgICAgICAgICAjIGV2ZW4gaWYgdGhleSBtaWdodCBhbHJlYWR5IGhhdmUgYmVlbiBsb2FkZWQgaW4gYSBwcmV2aW91cwogICAgICAgICAgICAgICAgICAgICMgbm90ZWJvb2suICAoaS5lLiBpbiBgMDAxLXJlYWQtYW5kLWZvcm1hdC5SbWRgKS4KCmlyaXNfZGF0YSA8LSByZWFkX3Jkcygib3V0cHV0cy8wMDEvZGF0X2ZpbmFsLnJkcyIpCmBgYAoKCk5vdywgSSB3YW50IHRvIHBsb3QgZWFjaCBsZW5ndGggYW5kIHdpZHRoIG1lYXN1cmVtZW50IGFnYWluc3QgZXZlcnkgb3RoZXIKbGVuZ3RoIGFuZCB3aWR0aCBtZWFzdXJlbWVudAphbmQgY29sb3VyIHRoZSBwb2ludHMgYnkgc3BlY2llcy4gIFRoaXMgY2FuIGJlIGRvbmUgcHJldHR5IGVhc2lseQpieSBmYWNldGluZyB3aXRoIGdncGxvdC4gQnV0IHRvIGRvIHNvLCB3ZSBuZWVkIHRoaW5ncyBpbiBhIGRpZmZlcmVudCBmb3JtYXQsIGxpa2UKdGhpczoKYGBge3J9CmlyaXNfeCA8LSBwaXZvdF9sb25nZXIoCiAgaXJpc19kYXRhLAogIGNvbHMgPSBjKC1pbmRpdiwgLXNwZWNpZXMpLAogIG5hbWVzX3RvID0gIm1lYXN1cmVtZW50X3giLAogIHZhbHVlc190byA9ICJ4IgopCmlyaXNfeSA8LSBwaXZvdF9sb25nZXIoCiAgaXJpc19kYXRhLAogIGNvbHMgPSBjKC1pbmRpdiwgLXNwZWNpZXMpLAogIG5hbWVzX3RvID0gIm1lYXN1cmVtZW50X3kiLAogIHZhbHVlc190byA9ICJ5IgopCgppcmlzX3BhaXJ3aXNlIDwtIGlyaXNfeCAlPiUKICBsZWZ0X2pvaW4oaXJpc195LCBieSA9IGMoImluZGl2IiwgInNwZWNpZXMiKSkKCmBgYAoKCk5vdywgbWFrZSB0aGUgcGxvdC4KYGBge3J9CmcgPC0gZ2dwbG90KGlyaXNfcGFpcndpc2UsIGFlcyh4ID0geCwgeSA9IHksIGZpbGwgPSBzcGVjaWVzKSkgKwogIGdlb21fcG9pbnQoc2hhcGUgPSAyMSwgc3Ryb2tlID0gMC4yKSArCiAgZmFjZXRfZ3JpZChtZWFzdXJlbWVudF95IH4gbWVhc3VyZW1lbnRfeCkKCmcKYGBgCgpUaGF0IGlzIGEgbmljZSBwaWN0dXJlLgoKTm93LCBpZiB3ZSB3YW50ZWQgdG8gd3JpdGUgdGhhdCBmaWd1cmUgb3V0IGFzIGEgUERGIGZpbGUgdG8gYmUgaW4gaGlnaApyZXNvbHV0aW9uLCBldGMuLCB3ZSB3b3VsZCB3cml0ZSB0aGF0IG91dCB0byB0aGUgYG91dHB1dHMvMDAyYCBkaXJlY3RvcnkuCmBgYHtyfQpnZ3NhdmUoCiAgZywKICBmaWxlbmFtZSA9ICJvdXRwdXRzLzAwMi9mYWNldGVkLXBsb3QucGRmIiwKICB3aWR0aCA9IDEwLAogIGhlaWdodCA9IDgKKQpgYGAK</div>
+─ Packages ─────────────────────────────────────────────────────────────────────────
+ package     * version date       lib source        
+ assertthat    0.2.1   2019-03-21 [1] CRAN (R 4.1.0)
+ backports     1.2.1   2020-12-09 [1] CRAN (R 4.1.0)
+ broom         0.7.9   2021-07-27 [1] CRAN (R 4.1.0)
+ bslib         0.3.0   2021-09-02 [1] CRAN (R 4.1.0)
+ cellranger    1.1.0   2016-07-27 [1] CRAN (R 4.1.0)
+ cli           3.0.1   2021-07-17 [1] CRAN (R 4.1.0)
+ colorspace    2.0-2   2021-06-24 [1] CRAN (R 4.1.0)
+ crayon        1.4.1   2021-02-08 [1] CRAN (R 4.1.0)
+ DBI           1.1.1   2021-01-15 [1] CRAN (R 4.1.0)
+ dbplyr        2.1.1   2021-04-06 [1] CRAN (R 4.1.0)
+ digest        0.6.27  2020-10-24 [1] CRAN (R 4.1.0)
+ dplyr       * 1.0.7   2021-06-18 [1] CRAN (R 4.1.0)
+ ellipsis      0.3.2   2021-04-29 [1] CRAN (R 4.1.0)
+ evaluate      0.14    2019-05-28 [1] CRAN (R 4.1.0)
+ fansi         0.5.0   2021-05-25 [1] CRAN (R 4.1.0)
+ farver        2.1.0   2021-02-28 [1] CRAN (R 4.1.0)
+ fastmap       1.1.0   2021-01-25 [1] CRAN (R 4.1.0)
+ forcats     * 0.5.1   2021-01-27 [1] CRAN (R 4.1.0)
+ fs            1.5.0   2020-07-31 [1] CRAN (R 4.1.0)
+ generics      0.1.0   2020-10-31 [1] CRAN (R 4.1.0)
+ ggplot2     * 3.3.5   2021-06-25 [1] CRAN (R 4.1.0)
+ glue          1.4.2   2020-08-27 [1] CRAN (R 4.1.0)
+ gtable        0.3.0   2019-03-25 [1] CRAN (R 4.1.0)
+ haven         2.4.3   2021-08-04 [1] CRAN (R 4.1.0)
+ hms           1.1.0   2021-05-17 [1] CRAN (R 4.1.0)
+ htmltools     0.5.2   2021-08-25 [1] CRAN (R 4.1.0)
+ httr          1.4.2   2020-07-20 [1] CRAN (R 4.1.0)
+ jquerylib     0.1.4   2021-04-26 [1] CRAN (R 4.1.0)
+ jsonlite      1.7.2   2020-12-09 [1] CRAN (R 4.1.0)
+ knitr         1.34    2021-09-09 [1] CRAN (R 4.1.0)
+ labeling      0.4.2   2020-10-20 [1] CRAN (R 4.1.0)
+ lifecycle     1.0.0   2021-02-15 [1] CRAN (R 4.1.0)
+ lubridate     1.7.10  2021-02-26 [1] CRAN (R 4.1.0)
+ magrittr      2.0.1   2020-11-17 [1] CRAN (R 4.1.0)
+ modelr        0.1.8   2020-05-19 [1] CRAN (R 4.1.0)
+ munsell       0.5.0   2018-06-12 [1] CRAN (R 4.1.0)
+ pillar        1.6.2   2021-07-29 [1] CRAN (R 4.1.0)
+ pkgconfig     2.0.3   2019-09-22 [1] CRAN (R 4.1.0)
+ purrr       * 0.3.4   2020-04-17 [1] CRAN (R 4.1.0)
+ R6            2.5.1   2021-08-19 [1] CRAN (R 4.1.0)
+ Rcpp          1.0.7   2021-07-07 [1] CRAN (R 4.1.0)
+ readr       * 2.0.1   2021-08-10 [1] CRAN (R 4.1.0)
+ readxl        1.3.1   2019-03-13 [1] CRAN (R 4.1.0)
+ reprex        2.0.1   2021-08-05 [1] CRAN (R 4.1.0)
+ rlang         0.4.11  2021-04-30 [1] CRAN (R 4.1.0)
+ rmarkdown     2.10    2021-08-06 [1] CRAN (R 4.1.0)
+ rstudioapi    0.13    2020-11-12 [1] CRAN (R 4.1.0)
+ rvest         1.0.1   2021-07-26 [1] CRAN (R 4.1.0)
+ sass          0.4.0   2021-05-12 [1] CRAN (R 4.1.0)
+ scales        1.1.1   2020-05-11 [1] CRAN (R 4.1.0)
+ sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 4.1.0)
+ stringi       1.7.4   2021-08-25 [1] CRAN (R 4.1.0)
+ stringr     * 1.4.0   2019-02-10 [1] CRAN (R 4.1.0)
+ tibble      * 3.1.6   2021-11-07 [1] CRAN (R 4.1.0)
+ tidyr       * 1.1.4   2021-09-27 [1] CRAN (R 4.1.0)
+ tidyselect    1.1.1   2021-04-30 [1] CRAN (R 4.1.0)
+ tidyverse   * 1.3.1   2021-04-15 [1] CRAN (R 4.1.0)
+ tzdb          0.1.2   2021-07-20 [1] CRAN (R 4.1.0)
+ utf8          1.2.2   2021-07-24 [1] CRAN (R 4.1.0)
+ vctrs         0.3.8   2021-04-29 [1] CRAN (R 4.1.0)
+ withr         2.4.2   2021-04-18 [1] CRAN (R 4.1.0)
+ xfun          0.25    2021-08-06 [1] CRAN (R 4.1.0)
+ xml2          1.3.2   2020-04-23 [1] CRAN (R 4.1.0)
+ yaml          2.2.1   2020-02-01 [1] CRAN (R 4.1.0)
+
+[1] /Users/eriq/Library/R/4.1/library
+[2] /Library/Frameworks/R.framework/Versions/4.1/Resources/library</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+</div>
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUGxvdCBUaGUgSXJpcyBEYXRhIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpUaGlzIHNlY29uZCBub3RlYm9vayB1c2VzIHRoZSBvdXRwdXQgZnJvbSBgMDAxLXJlYWQtYW5kLWZvcm1hdC5SbWRgLgoKU29tZXRpbWVzLCB3aGVuIHlvdSBoYXZlIGEgbG9uZyBhbmFseXNpcyBwcm9qZWN0LCBpdCBpcyBoZWxwZnVsIHRvCmJyZWFrIGl0IGludG8gc2V2ZXJhbCBkaWZmZXJlbnQgZmlsZXMuICAKCihPYnZpb3VzbHkgdGhpcyBpcyBzaG9ydCBlbm91Z2ggdGhhdCBpdCB3b3VsZCBiZSBmaW5lIHRvIGRvIGl0IGFsbAppbiBvbmUgZmlsZS4gIEJ1dCB0aGF0IGlzIG5vdCBhbHdheXMgdGhlIGNhc2UtLS1lc3BlY2lhbGx5IGlmIHlvdSBoYXZlCm11bHRpcGxlIHBlb3BsZSB3b3JraW5nIG9uIGRpZmZlcmVudCBhc3BlY3RzIG9mIHRoZSBhbmFseXNpcy4pCgpXZSB3aWxsIGJlIHdyaXRpbmcgb3V0IHNvbWUgcGxvdHMsIHNvIG1ha2Ugc3VyZSB0byBjcmVhdGUKYSBkaXJlY3RvcnkgZm9yIHRoZW0gdG8gZ28gaW46CmBgYHtyfQpkaXIuY3JlYXRlKCJvdXRwdXRzLzAwMiIsIHNob3dXYXJuaW5ncyA9IEZBTFNFLCByZWN1cnNpdmUgPSBUUlVFKQpgYGAKClJlYWQgdGhlIGZvcm1hdHRlZCBkYXRhIG91dHB1dCBpbiAwMDEgaW4gaGVyZToKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKSAgIyBhbHdheXMgbG9hZCBsaWJyYXJpZXMgbmVlZGVkIGluIHRoZSBjdXJyZW50IHNjcmlwdC9ub3RlYm9vaywKICAgICAgICAgICAgICAgICAgICAjIGV2ZW4gaWYgdGhleSBtaWdodCBhbHJlYWR5IGhhdmUgYmVlbiBsb2FkZWQgaW4gYSBwcmV2aW91cwogICAgICAgICAgICAgICAgICAgICMgbm90ZWJvb2suICAoaS5lLiBpbiBgMDAxLXJlYWQtYW5kLWZvcm1hdC5SbWRgKS4KCmlyaXNfZGF0YSA8LSByZWFkX3Jkcygib3V0cHV0cy8wMDEvZGF0X2ZpbmFsLnJkcyIpCmBgYAoKCk5vdywgSSB3YW50IHRvIHBsb3QgZWFjaCBsZW5ndGggYW5kIHdpZHRoIG1lYXN1cmVtZW50IGFnYWluc3QgZXZlcnkgb3RoZXIKbGVuZ3RoIGFuZCB3aWR0aCBtZWFzdXJlbWVudAphbmQgY29sb3VyIHRoZSBwb2ludHMgYnkgc3BlY2llcy4gIFRoaXMgY2FuIGJlIGRvbmUgcHJldHR5IGVhc2lseQpieSBmYWNldGluZyB3aXRoIGdncGxvdC4gQnV0IHRvIGRvIHNvLCB3ZSBuZWVkIHRoaW5ncyBpbiBhIGRpZmZlcmVudCBmb3JtYXQsIGxpa2UKdGhpczoKYGBge3J9CmlyaXNfeCA8LSBwaXZvdF9sb25nZXIoCiAgaXJpc19kYXRhLAogIGNvbHMgPSBjKC1pbmRpdiwgLXNwZWNpZXMpLAogIG5hbWVzX3RvID0gIm1lYXN1cmVtZW50X3giLAogIHZhbHVlc190byA9ICJ4IgopCmlyaXNfeSA8LSBwaXZvdF9sb25nZXIoCiAgaXJpc19kYXRhLAogIGNvbHMgPSBjKC1pbmRpdiwgLXNwZWNpZXMpLAogIG5hbWVzX3RvID0gIm1lYXN1cmVtZW50X3kiLAogIHZhbHVlc190byA9ICJ5IgopCgppcmlzX3BhaXJ3aXNlIDwtIGlyaXNfeCAlPiUKICBsZWZ0X2pvaW4oaXJpc195LCBieSA9IGMoImluZGl2IiwgInNwZWNpZXMiKSkKCmBgYAoKCk5vdywgbWFrZSB0aGUgcGxvdC4KYGBge3J9CmcgPC0gZ2dwbG90KGlyaXNfcGFpcndpc2UsIGFlcyh4ID0geCwgeSA9IHksIGZpbGwgPSBzcGVjaWVzKSkgKwogIGdlb21fcG9pbnQoc2hhcGUgPSAyMSwgc3Ryb2tlID0gMC4yKSArCiAgZmFjZXRfZ3JpZChtZWFzdXJlbWVudF95IH4gbWVhc3VyZW1lbnRfeCkKCmcKYGBgCgpUaGF0IGlzIGEgbmljZSBwaWN0dXJlLgoKTm93LCBpZiB3ZSB3YW50ZWQgdG8gd3JpdGUgdGhhdCBmaWd1cmUgb3V0IGFzIGEgUERGIGZpbGUgdG8gYmUgaW4gaGlnaApyZXNvbHV0aW9uLCBldGMuLCB3ZSB3b3VsZCB3cml0ZSB0aGF0IG91dCB0byB0aGUgYG91dHB1dHMvMDAyYCBkaXJlY3RvcnkuCmBgYHtyfQpnZ3NhdmUoCiAgZywKICBmaWxlbmFtZSA9ICJvdXRwdXRzLzAwMi9mYWNldGVkLXBsb3QucGRmIiwKICB3aWR0aCA9IDEwLAogIGhlaWdodCA9IDgKKQpgYGAKCiMjIFNlc3Npb24gSW5mbwoKYGBge3J9CmlmKCJzZXNzaW9uaW5mbyIgJWluJSByb3duYW1lcyhpbnN0YWxsZWQucGFja2FnZXMoKSkpIHsKICBzZXNzaW9uaW5mbzo6c2Vzc2lvbl9pbmZvKCkKfSBlbHNlIHsKICBzZXNzaW9uSW5mbygpCn0KYGBg</div>
 
 
 

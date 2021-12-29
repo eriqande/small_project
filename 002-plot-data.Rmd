@@ -74,3 +74,13 @@ ggsave(
   height = 8
 )
 ```
+
+## Session Info
+
+```{r}
+if("sessioninfo" %in% rownames(installed.packages())) {
+  sessioninfo::session_info()
+} else {
+  sessionInfo()
+}
+```
