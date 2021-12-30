@@ -16,7 +16,7 @@ While it is not customary to keep R Notebook outputs under version
 control, in this case, the files: `001-read-and-format.nb.html` and
 `002-plot-data.nb.html` are included in the repository.
 
-This is because there typeset versions are included in a GitHub Pages
+This is because their typeset versions are included in a GitHub Pages
 web page, so that they may be viewed correctly on the web, if desired.
 Links to those are here:
 
