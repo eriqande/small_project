@@ -3,6 +3,10 @@ title: "Read and Format Data"
 output: html_notebook
 ---
 
+
+Yahooo!!! 
+
+
 This is just a small example of how a reproducible project might look.
 Each notebook does very little (less than in a typical analysis).
 
